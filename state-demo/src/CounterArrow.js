@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 
 export default class CounterArrow extends Component {
     constructor(props) {
-      super(props)
-    
+      super(props)    
       this.state = {
          count:0
       }
