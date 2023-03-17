@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": 198,
+      "title": "Keyboard",
+      "price": 364.3
+    },
+    {
+      "id": 200,
+      "title": "Wifi-Cable",
+      "price": 364.3
+    },
+    {
+      "id": 201,
+      "title": "Optical-Mouse",
+      "price": 364.3
+    },
+    {
+      "id": 299,
+      "title": "HDD",
+      "price": 183.23
+    },
+    {
+      "id": 999,
+      "title": "abc",
+      "price": 744.23
+    }
+  ]
+}
