@@ -16,17 +16,10 @@
     },
     {
       "name": "Peach",
-      "quantity": 20,
-      "price": 100,
+      "quantity": 1234,
+      "price": 1130,
       "imageUrl": "../assets/images/Peach.jpg",
       "id": 4
-    },
-    {
-      "name": "Avocado",
-      "quantity": 2400,
-      "price": 120,
-      "imageUrl": "https://5.imimg.com/data5/VR/LB/MY-58843567/organic-avocado-1000x1000.jpg",
-      "id": 5
     },
     {
       "name": "Kiwi",
