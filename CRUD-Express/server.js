@@ -51,8 +51,8 @@ app.get('/items',(req,res)=>{
 
 // Add new Item  ==> Create
 app.post('/items',(req,res)=>{
-    console.log(req.body.content);
-    if(!req.body.content)
+   // console.log(req.body);
+    if(!req.body)
         return res.status(400).send({
             message:"Item Content are missing"
         });
@@ -76,4 +76,3 @@ app.post('/items',(req,res)=>{
 
 app.listen(3004,()=>{
     console.log('Server is Listening on port 3004');
-})
