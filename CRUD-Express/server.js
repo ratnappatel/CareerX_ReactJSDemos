@@ -87,14 +87,14 @@ app.put('/items/:itemId',(req,res)=>{
         return res.status(400).send({
             message:"Item Content are missing"
         });
-        const data=new item({
+        const data={
             item:req.body.item ||'Undefined Item',
             price:req.body.price || 0,
             quantity:req.body.quantity|| 0,
             date:req.body.date || new Date()
-        })
+        }
         var id=req.params.itemId;
-        item.findByIdAndUpdate(id,data).then(updatedItem=>{
+        item.findByIdAndUpdate(id,data,{new:true,upsert:true}).then(updatedItem=>{
            res.status(200).send(updatedItem)
         })
         .catch(err=>{
