@@ -48,6 +48,15 @@ app.get('/items',(req,res)=>{
     })
 })
 
+app.get('/items/:itemId',(req,res)=>{
+    var id=req.params.itemId;
+    // To Find by MongoDB assigned ObjectID
+     item.findById(id).then(result=>{
+        res.send(result);
+    }).catch(err=>{
+        res.status(500).send({message:"Could not Find Data"})
+    }) 
+})
 
 // Add new Item  ==> Create
 app.post('/items',(req,res)=>{
@@ -73,6 +82,25 @@ app.post('/items',(req,res)=>{
         });
 })
 
+app.put('/items/:itemId',(req,res)=>{
+    if(!req.body)
+        return res.status(400).send({
+            message:"Item Content are missing"
+        });
+        const data=new item({
+            item:req.body.item ||'Undefined Item',
+            price:req.body.price || 0,
+            quantity:req.body.quantity|| 0,
+            date:req.body.date || new Date()
+        })
+        var id=req.params.itemId;
+        item.findByIdAndUpdate(id,data).then(updatedItem=>{
+           res.status(200).send(updatedItem)
+        })
+        .catch(err=>{
+            res.status(500).send({message:err})
+        })
+})
 
 app.listen(3004,()=>{
     console.log('Server is Listening on port 3004');
