@@ -105,8 +105,12 @@ app.put('/items/:itemId',(req,res)=>{
 
 app.delete('/items/:itemId',(req,res)=>{
     var id=req.params.itemId;
-    item.findByIdAndDelete(id);
-    res.status(200).send({message:'Item has been Deleted...'})
+    item.findByIdAndDelete(id,{new:true,upsert:true}).then(()=>{
+        res.status(200).send('Item Deleted Successfully..')
+     })
+     .catch(err=>{
+         res.status(500).send({message:err})
+     })
 })
 
 
