@@ -102,6 +102,12 @@ app.put('/items/:itemId',(req,res)=>{
         })
 })
 
+
+app.delete('/items/:itemId',(req,res)=>{
+    var id=req.params.itemId;
+    item.findByIdAndDelete(id);
+    res.status(200).send({message:'Item has been Deleted...'})
+})
 app.listen(3004,()=>{
     console.log('Server is Listening on port 3004');
 })
