@@ -26,7 +26,6 @@ mongoose.connect('mongodb://localhost:27017/groceryDB',{useNewUrlParser:true})
 .catch(()=>{
     console.log('Could not Connect to DB..');
     process.exit();
-
 })
 
 //extended=true==> accept data as Array/Objects only
@@ -87,6 +86,7 @@ app.put('/items/:itemId',(req,res)=>{
         return res.status(400).send({
             message:"Item Content are missing"
         });
+        // Without fail Create simple JSON-Object for modified values.
         const data={
             item:req.body.item ||'Undefined Item',
             price:req.body.price || 0,
@@ -108,6 +108,8 @@ app.delete('/items/:itemId',(req,res)=>{
     item.findByIdAndDelete(id);
     res.status(200).send({message:'Item has been Deleted...'})
 })
+
+
 app.listen(3004,()=>{
     console.log('Server is Listening on port 3004');
 })

@@ -46,22 +46,22 @@ function App() {
                 <Route
                   exact
                   path="/"
-                  component={(props) => <CreateEmployee {...props} />}
+                  element={(props) => <CreateEmployee {...props} />}
                 />
                 <Route
                   exact
                   path="/create-employee"
-                  component={(props) => <CreateEmployee {...props} />}
+                  element={(props) => <CreateEmployee {...props} />}
                 />
                 <Route
                   exact
                   path="/edit-employee/:id"
-                  component={(props) => <EditEmployee {...props} />}
+                  element={(props) => <EditEmployee {...props} />}
                 />
                 <Route
                   exact
                   path="/employee-list"
-                  component={(props) => <EmployeeList {...props} />}
+                  element={(props) => <EmployeeList {...props} />}
                 />
               </Routes>
             </div>
