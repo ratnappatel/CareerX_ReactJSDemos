@@ -57,6 +57,14 @@ app.get('/items/:itemId',(req,res)=>{
     }) 
 })
 
+app.get('/items/:name',()=>{
+
+})
+
+app.get('/items/:name',()=>{
+    
+})
+
 // Add new Item  ==> Create
 app.post('/items',(req,res)=>{
    // console.log(req.body);
@@ -101,8 +109,6 @@ app.put('/items/:itemId',(req,res)=>{
             res.status(500).send({message:err})
         })
 })
-
-
 app.delete('/items/:itemId',(req,res)=>{
     var id=req.params.itemId;
     item.findByIdAndDelete(id,{new:true,upsert:true}).then(()=>{

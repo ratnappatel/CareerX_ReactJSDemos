@@ -1,20 +1,21 @@
-import {BrowserRouter as Router, Routes,Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import CreateEmployee from './Components/create-employee';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
+import CreateEmployee from './Components/create-employee';
 import EditEmployee from './Components/edit-employee';
 import EmployeeList from './Components/list-employee';
 
 
 function App() {
   return (
-    <div className="App">
     <Router>
+    <div className="App">
+  
       <header className="App-header">
         <Navbar bg="dark" variant="dark">
           <Container>
@@ -51,25 +52,29 @@ function App() {
                 <Route
                   exact
                   path="/create-employee"
-                  element={(props) => <CreateEmployee {...props} />}
+                  //action={(props) => <CreateEmployee {...props} />}
+                  element={<CreateEmployee/>}
                 />
                 <Route
                   exact
                   path="/edit-employee/:id"
-                  element={(props) => <EditEmployee {...props} />}
+                  //action={(props) => <EditEmployee {...props} />}
+                  element={<EditEmployee/>}
                 />
                 <Route
                   exact
                   path="/employee-list"
-                  element={(props) => <EmployeeList {...props} />}
+                 // action={(props) => <EmployeeList {...props} />}
+                 element={<EmployeeList/>}
                 />
               </Routes>
             </div>
           </Col>
         </Row>
       </Container>
+      </div>
     </Router>
-  </div>
+ 
   );
 }
 
