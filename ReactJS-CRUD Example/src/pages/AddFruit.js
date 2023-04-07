@@ -19,7 +19,8 @@ function AddFruit() {
       price: price.current.value ? Number(price.current.value):0,
       imageUrl: imageUrl.current.value,
     };
-    axios.post("http://localhost:4000/fruits", payload).then(() => {
+    axios.post("http://localhost:4000/fruits", payload,
+       {'Content-Type': 'application/json'}).then(() => {
       navigate("/");
     });
   };

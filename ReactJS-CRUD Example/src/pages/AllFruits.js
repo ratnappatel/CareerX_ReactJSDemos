@@ -35,7 +35,7 @@ function AllFruits() {
       .delete(`http://localhost:4000/fruits/${itemToDeleteId}`)
       .then((response) => {
         setAllFruits((previousState) => {
-          return previousState.filter((_) => _.id !== itemToDeleteId);
+          return previousState.filter((_) => _._id !== itemToDeleteId);
         });
         setItemToDeleteId(0);
         setShowModal(false);
@@ -60,7 +60,7 @@ function AllFruits() {
       </Row>
       <Row xs={1} md={3} className="g-2">
         {allFruits.map((item) => (
-          <Col key={item.id}>
+          <Col key={item._id}>
             <Card>
               <Card.Img
                 variant="top"
@@ -73,13 +73,13 @@ function AllFruits() {
                 <Card.Text>Price - {item.price}</Card.Text>
                 <Button
                   variant="primary"
-                  onClick={() => navigate(`/update-fruit/${item.id}`)}
+                  onClick={() => navigate(`/update-fruit/${item._id}`)}
                 >
                   Edit
                 </Button>
                 <Button
                   variant="danger"
-                  onClick={() =>{openConfirmDeleteModalHandler(item.id)}}
+                  onClick={() =>{openConfirmDeleteModalHandler(item._id)}}
                 >
                   Delete
                 </Button>
